@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تقدیم با عشق</title>
+    <style>
+     .button {
+        width: 9em;
+        height: 3em;
+        border-radius: 30em;
+        font-size: 15px;
+        font-family: inherit;
+        border: none;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+        box-shadow: 6px 6px 12px #5c5b5b,
+        -6px -6px 12px #676666;
+        cursor: pointer;
+     }
+     .button::before {
+        content: '';
+        width: 0;
+        height: 3em;
+        border-radius: 30em;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-image: linear-gradient(to right, #ff5100 0%, #ffd500 100%);
+        transition: .7s ease;
+        display: block;
+        z-index: -1;
+     
+     }
+     .button:hover::before {
+        width: 9em;
+     }
+        body {
+            background: linear-gradient(to right, rgb(203, 22, 22), white);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .image-container {
+            border-radius: 15px;
+            overflow: hidden;
+            display: none;
+        }
+        img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+        }
+        .text-container {
+            text-align: center;
+            margin-top: 5px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 24px;
+            color: black;
+            line-height: 1.2rem;
+        }
+        .small-button {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            display: none;
+            padding: 2px 5px;
+            font-size: 7px;
+            background-color: rgb(255, 255, 255);
+            color: rgb(0, 0, 0);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .video-container {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            height: 80%;
+            z-index: 1000;
+        }
+        .video-container video {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="image-container" id="imageContainer">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0OgOlDZ8_XvzyfJpwsNd_2P0uKcuT57-lJZp32TMLU1B7wbvg0sLPuHOXw-SAaZzoz38&usqp=CAU" alt="Your Image">
+    <div class="text-container">
+        <p>کوروش تولدت مبارک</p>
+        <p>😘شوشول طلا</p>
+    </div>
+    <button class="small-button no-animation" id="smallButton" onclick="playVideo()">کلیک نکن</button>
+    </div>
+    <button class="button" id="showImageButton" onclick="showImage()">کلیک کن</button>
+
+    <div class="video-container" id="videoContainer">
+        <video id="myVideo">
+            <source src="https://media.vlipsy.com/vlips/K8z3JfP9/360p.mp4" type="video/mp4">
+        </video>
+    </div>
+    <audio id="myAudio">
+        <source src="اهنگ خایه مال سگ بگاد.m4a" type="audio/mpeg">
+    </audio>
+    <script>
+        function showImage() {
+            document.getElementById('imageContainer').classList.remove('hidden');
+            document.getElementById('imageContainer').style.display = 'block';
+            document.getElementById('showImageButton').remove();
+            document.getElementById('smallButton').style.display = 'block';
+            document.getElementById('myAudio').play()
+        }
+
+        function playVideo() {
+            document.getElementById('imageContainer').style.display = 'none';
+            document.getElementById('videoContainer').style.display = 'block';
+            document.getElementById('myVideo').play();
+        }
+    </script>
+</body>
+</html>
